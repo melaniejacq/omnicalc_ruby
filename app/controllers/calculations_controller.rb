@@ -101,7 +101,11 @@ class CalculationsController < ApplicationController
 
     @range = @maximum - @minimum
 
-    @median = "Replace this string with your answer."
+    if @count % 2 != 0 
+      @median = @numbers[(@count + 1)/2]
+    else
+         @median = ( @numbers[@count/2] + @numbers[(@count + 2)/2]) /2 
+    end 
 
     @sum = @numbers.sum
 
