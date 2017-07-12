@@ -11,14 +11,19 @@ class CalculationsController < ApplicationController
     # ================================================================================
 
 
-    @word_count = "Replace this string with your answer."
+    @word_count = @text.split.count
 
-    @character_count_with_spaces = "Replace this string with your answer."
+    @character_count_with_spaces = @text.length
 
-    @character_count_without_spaces = "Replace this string with your answer."
+    @character_count_without_spaces = @text.gsub(" ", "").length
 
-    @occurrences = "Replace this string with your answer."
+    @text_clean = @text.gsub(/[^a-z0-9\s]/i, "").downcase
+    
+    @occurrences = @text_clean.split
+    @occurrences = @occurrences.count(@special_word.downcase)
 
+    
+    
     # ================================================================================
     # Your code goes above.
     # ================================================================================
@@ -38,7 +43,11 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @monthly_payment = "Replace this string with your answer."
+    @r = @apr/(12*100)
+    @n = @years*12
+    @p = @principal
+    
+    @monthly_payment = @r*@p/(1-(1+@r)**(-@n))
 
     # ================================================================================
     # Your code goes above.
