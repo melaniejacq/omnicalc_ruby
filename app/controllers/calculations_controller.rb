@@ -9,7 +9,8 @@ class CalculationsController < ApplicationController
     # The text the user input is in the string @text.
     # The special word the user input is in the string @special_word.
     # ================================================================================
-
+    
+    # Beli's edit to check errors
 
     @word_count = @text.split.count
 
