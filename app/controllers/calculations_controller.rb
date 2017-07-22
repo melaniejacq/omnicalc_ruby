@@ -9,8 +9,6 @@ class CalculationsController < ApplicationController
     # The text the user input is in the string @text.
     # The special word the user input is in the string @special_word.
     # ================================================================================
-    
-    # Beli's edit to check errors
 
     @word_count = @text.split.count
 
@@ -70,12 +68,14 @@ class CalculationsController < ApplicationController
     #   number of seconds as a result.
     # ================================================================================
 
-    @seconds = @ending-@starting.round(0)
-    @minutes = (@seconds/60).round(0)
-    @hours = (@minutes/60).round(0)
-    @days = (@hours/24).round(0)
-    @weeks = (@days/7).round(2)
-    @years = (@days/365).round(2)
+    # I just changed all the roundings to 5
+    
+    @seconds = @ending-@starting.round(5)
+    @minutes = (@seconds/60).round(5)
+    @hours = (@minutes/60).round(5)
+    @days = (@hours/24).round(5)
+    @weeks = (@days/7).round(5)
+    @years = (@days/365).round(5)
 
     # ================================================================================
     # Your code goes above.
